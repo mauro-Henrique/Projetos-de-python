@@ -1,6 +1,7 @@
 from tkinter import *
 import os
 def mostrar_tela():
+    #abre a tela inicial
     global tela
     tela = Tk()
     tela.geometry('300x250')
@@ -12,6 +13,7 @@ def mostrar_tela():
     Button(text='cadastre-se',command=cadastro, width='30',height='2').pack()
     tela.mainloop()
 def cadastro():
+    #abre a tela de cadastro
     global usuario, senha, usuarioEntry, senhaEntry, telaCad
 
     telaCad = Toplevel(tela)
@@ -32,6 +34,7 @@ def cadastro():
     Label(telaCad, text='').pack()
     Button(telaCad, text='Cadastro', command=registrarCadastro, width=10, height=1).pack()
 def registrarCadastro():
+    #Registra o cadastro do usuario
     global arquivo
     nomeUsuario = usuario.get()
     senhaUsuario = senha.get()
@@ -45,6 +48,7 @@ def registrarCadastro():
 
     Label(telaCad, text = 'Cadastro registrado', fg = 'green', font=('calibri',11)).pack()    
 def login():
+    #Abre a tela de login
     global telaLog, logUsuario, logSenha, logEntryusu, logEntrysen
     telaLog = Toplevel(tela)
     telaLog.title('Login')
@@ -65,6 +69,7 @@ def login():
     Button(telaLog, text='Login', command=confirmarLogin, width=10, height=1).pack()
 
 def confirmarLogin():
+    #Cofirma se o login esta correto
     logu = logUsuario.get()
     logs = logSenha.get()
     logEntryusu.delete(0, END)
@@ -82,6 +87,7 @@ def confirmarLogin():
         usuarioErrado()
 
 def loginCerto():
+    #abre uma tela e mostra que o login esta certo
     global telaSucesso
     telaSucesso = Toplevel(tela)
     telaSucesso.title('Sucesso')
@@ -89,8 +95,10 @@ def loginCerto():
     Label(telaSucesso,text = 'Login feito com sucesso').pack()
     Button(telaSucesso,text='Voltar', command = sair).pack()
 def sair():
+    #sai da tela de confirmação de login
     telaSucesso.destroy()
 def usuarioErrado():
+    #abre uma tela e mostra q o usuaiio n foi achado
     global telaNE
     telaNE = Toplevel(tela)
     telaNE.title('não encontrado')
@@ -98,8 +106,10 @@ def usuarioErrado():
     Label(telaNE, text='Usuario não encontrado').pack()
     Button(telaNE, text='Voltar', command=sair1).pack()
 def sair1():
+    #sai da tela de erro do usuario
     telaNE.destroy()   
 def senhaErrada():
+    #mabre uma tela que fala sobre a senha estar incorreta
     global telaSS
     telaSS = Toplevel(tela)
     telaSS.title('não encotrado')
@@ -107,6 +117,7 @@ def senhaErrada():
     Label(telaSS, text='senha não encontrada').pack()
     Button(telaSS, text='Voltar', command=sair2).pack()
 def sair2():
+    #sai da tela de erro da senha
     telaSS.destroy()    
 
 
